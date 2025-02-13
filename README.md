@@ -11,10 +11,13 @@ Our experiments reveal that inference techniques such as Chain-of-Thought (CoT),
 [2025-02-16] 🎉🎉🎉 Our preprint paper has been submitted to arxiv: 
 
 ## Contents
+- [What makes Medical Hallucination Special?](#difference)
 - [Hallucinations in Medical LLMs](#llms)
 - [Medical Hallucination Benchmarks](#benchmarks)
 - [Detection Methods for Medical Hallucination](#detection)
 - [Mitigation Methods for Medical Hallucination](#mitigation)
+
+## What makes Medical Hallucination Special? <a name="difference"></a>
 
 ## Hallucinations in Medical LLMs <a name="llms"></a>
 | Title | Institute | Date | Code
