@@ -1,14 +1,9 @@
-# Medical Hallucination
-The emergence of Foundation Models (e.g., Large Language Models [LLM] and Large Vision Models [LVM]) capable of processing and generating multi-modal data has transformed AI’s role in medicine. However, these models have limitations, particularly hallucination, where inaccurate or fabricated information is generated. We define **medical hallucination** as instances where models, particularly LLMs, produce misleading medical information that can adversely affect clinical decision-making.
-
-By examining their unique characteristics, underlying causes, and critical implications, we categorize and exemplify medical hallucinations, highlighting their potentially life-threatening outcomes. Our contributions
-include a taxonomy for understanding and addressing medical hallucinations, experiments using medical hallucination benchmarks and physician-annotated medical records, and insights from a multi-national clinician survey on their experiences with medical hallucinations. 
-
-Our experiments reveal that inference techniques such as Chain-of-Thought (CoT), Retrieval-Augmented Generation (RAG), and Internet Search impact hallucination rates, emphasizing the need for tailored mitigation strategies. These findings underscore the ethical and practical imperative for robust detection and mitigation strategies, establishing a foundation for regulatory policies that prioritize patient safety and uphold clinical integrity as AI integrates further into healthcare. 
+## Medical Hallucination in Foundation Models and Their Impact on Healthcare (2025)
+Foundation Models that are capable of processing and generating multi-modal data have transformed AI’s role in medicine. However, a key limitation of their reliability is hallucination, where inaccurate or fabricated information can impact clinical decisions and patient safety. We define **medical hallucination** as any instance in which a model generates misleading medical content. This paper examines the unique characteristics, causes, and implications of medical hallucinations, with a particular focus on how these errors manifest themselves in real-world clinical scenarios. Our contributions include (1) a taxonomy for understanding and addressing medical hallucinations, (2) benchmarking models using medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations, and (3) a multi-national clinician survey on their experiences with medical hallucinations. Our results reveal that inference techniques such as Chain-of-Thought (CoT) and Search Augmented Generation can effectively reduce hallucination rates. However, despite these improvements, non-trivial levels of hallucination persist. These findings underscore the ethical and practical imperative for robust detection and mitigation strategies, establishing a foundation for regulatory policies that prioritize patient safety and maintain clinical integrity as AI becomes more integrated into healthcare. The feedback from clinicians highlights the urgent need for not only technical advances but also for clearer ethical and regulatory guidelines to ensure patient safety.
 
 
 ##  📣 News
-[2025-02-16] 🎉🎉🎉 Our preprint paper has been submitted to arxiv: 
+[2025-02-16] 🎉🎉🎉 Our preprint paper has been submitted to [medRxiv](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1).
 
 ## Contents
 - [What makes Medical Hallucination Special?](#difference)
@@ -18,6 +13,9 @@ Our experiments reveal that inference techniques such as Chain-of-Thought (CoT),
 - [Mitigation Methods for Medical Hallucination](#mitigation)
 
 ## What makes Medical Hallucination Special? <a name="difference"></a>
+
+<img src="./imgs/taxonomy.png" alt="Taxonomy" width="400">
+
 Our primary contributions include:
 
 1. A **taxonomy** for medical hallucination in Large Language Models
@@ -93,11 +91,16 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 Please consider citing 📑 our paper if our repository is helpful to your work, thanks sincerely!
 
 ```
-@article{kim2024medical,
-  title   = "Medical Hallucination in Foundation Models and Their Impact on Healthcare",
-  author = "Kim, Yubin and Jeong, Hyewon andChen, Shan and Li, Shuyue Stella and Lu, Mingyu and Alhamoud, Kumail and Mun, Jimin and Grau, Cristina and Jung, Minseok and Gameiro, Rodrigo and Fan, Lizhou and Park, Eugene and Lin, Tristan and Yoon, Joonsik and Yoon, Wonjin and Sap, Maarten and Tsvetkov, Yulia and Liang, Paul and Xu, Xuhai and Liu, Xin and McDuff, Daniel and Lee, Hyeonhoon and Park, Hae Won and Tulebaev, Samir and Breazeal, Cynthia",
-  journal = "arXiv preprint arXiv.XXXXXXX",
-  year    = "2025",
-  url     = "https://arxiv.org/abs/XXXX.XXXX" 
+@article {Kim2025.02.28.25323115,
+	author = {Kim, Yubin and Jeong, Hyewon and Chen, Shen and Li, Shuyue Stella and Lu, Mingyu and Alhamoud, Kumail and Mun, Jimin and Grau, Cristina and Jung, Minseok and Gameiro, Rodrigo R and Fan, Lizhou and Park, Eugene and Lin, Tristan and Yoon, Joonsik and Yoon, Wonjin and Sap, Maarten and Tsvetkov, Yulia and Liang, Paul Pu and Xu, Xuhai and Liu, Xin and McDuff, Daniel and Lee, Hyeonhoon and Park, Hae Won and Tulebaev, Samir R and Breazeal, Cynthia},
+	title = {Medical Hallucination in Foundation Models and Their Impact on Healthcare},
+	elocation-id = {2025.02.28.25323115},
+	year = {2025},
+	doi = {10.1101/2025.02.28.25323115},
+	publisher = {Cold Spring Harbor Laboratory Press},
+	abstract = {Foundation Models that are capable of processing and generating multi-modal data have transformed AI{\textquoteright}s role in medicine. However, a key limitation of their reliability is hallucination, where inaccurate or fabricated information can impact clinical decisions and patient safety. We define medical hallucination as any instance in which a model generates misleading medical content. This paper examines the unique characteristics, causes, and implications of medical hallucinations, with a particular focus on how these errors manifest themselves in real-world clinical scenarios. Our contributions include (1) a taxonomy for understanding and addressing medical hallucinations, (2) benchmarking models using medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations, and (3) a multi-national clinician survey on their experiences with medical hallucinations. Our results reveal that inference techniques such as Chain-of-Thought (CoT) and Search Augmented Generation can effectively reduce hallucination rates. However, despite these improvements, non-trivial levels of hallucination persist. These findings underscore the ethical and practical imperative for robust detection and mitigation strategies, establishing a foundation for regulatory policies that prioritize patient safety and maintain clinical integrity as AI becomes more integrated into healthcare. The feedback from clinicians highlights the urgent need for not only technical advances but also for clearer ethical and regulatory guidelines to ensure patient safety. A repository organizing the paper resources, summaries, and additional information is available at https://github.com/mitmedialab/medical_hallucination.Competing Interest StatementThe authors have declared no competing interest.Funding StatementThis study did not receive any funding.Author DeclarationsI confirm all relevant ethical guidelines have been followed, and any necessary IRB and/or ethics committee approvals have been obtained.YesThe details of the IRB/oversight body that provided approval or exemption for the research described are given below:This study received an Institutional Review Board (IRB) exemption from MIT COUHES (Committee On the Use of Humans as Experimental Subjects) under exemption category 2 (Educational Testing, Surveys, Interviews, or Observation). The IRB determined that this research, involving surveys with professionals on their perceptions and experiences with AI/LLMs, posed minimal risk to participants and met the criteria for exemption.I confirm that all necessary patient/participant consent has been obtained and the appropriate institutional forms have been archived, and that any patient/participant/sample identifiers included were not known to anyone (e.g., hospital staff, patients or participants themselves) outside the research group so cannot be used to identify individuals.YesI understand that all clinical trials and any other prospective interventional studies must be registered with an ICMJE-approved registry, such as ClinicalTrials.gov. I confirm that any such study reported in the manuscript has been registered and the trial registration ID is provided (note: if posting a prospective study registered retrospectively, please provide a statement in the trial ID field explaining why the study was not registered in advance).Yes I have followed all appropriate research reporting guidelines, such as any relevant EQUATOR Network research reporting checklist(s) and other pertinent material, if applicable.YesMed-HALT is a publicly available dataset and NEJM Medical Records can be access after the sign-up.https://www.nejm.org/browse/nejm-article-category/clinical-cases?date=past5Yearshttps://github.com/medhalt/medhalt},
+	URL = {https://www.medrxiv.org/content/early/2025/03/03/2025.02.28.25323115},
+	eprint = {https://www.medrxiv.org/content/early/2025/03/03/2025.02.28.25323115.full.pdf},
+	journal = {medRxiv}
 }
 ```
