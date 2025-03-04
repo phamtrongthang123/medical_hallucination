@@ -1,9 +1,23 @@
+<div align=center>
+<img src="./images/logo.png" width="180px">
+</div>
+<h2 align="center"><a href="https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1"> Medical Hallucination in Foundation Models and Their Impact on Healthcare </a></h2>
+<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
+
+<h5 align="center">
+
+
+   [![medrxiv](https://img.shields.io/badge/medRxiv-2025.02.28.25323115-red)](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1)
+
+
+</h5>
+
 ## Medical Hallucination in Foundation Models and Their Impact on Healthcare (2025)
 Foundation Models that are capable of processing and generating multi-modal data have transformed AI’s role in medicine. However, a key limitation of their reliability is hallucination, where inaccurate or fabricated information can impact clinical decisions and patient safety. We define **medical hallucination** as any instance in which a model generates misleading medical content. This paper examines the unique characteristics, causes, and implications of medical hallucinations, with a particular focus on how these errors manifest themselves in real-world clinical scenarios. Our contributions include (1) a taxonomy for understanding and addressing medical hallucinations, (2) benchmarking models using medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations, and (3) a multi-national clinician survey on their experiences with medical hallucinations. Our results reveal that inference techniques such as Chain-of-Thought (CoT) and Search Augmented Generation can effectively reduce hallucination rates. However, despite these improvements, non-trivial levels of hallucination persist. These findings underscore the ethical and practical imperative for robust detection and mitigation strategies, establishing a foundation for regulatory policies that prioritize patient safety and maintain clinical integrity as AI becomes more integrated into healthcare. The feedback from clinicians highlights the urgent need for not only technical advances but also for clearer ethical and regulatory guidelines to ensure patient safety.
 
 
 ##  📣 News
-[2025-02-16] 🎉🎉🎉 Our preprint paper has been submitted to [medRxiv](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1).
+[2025-03-03] 🎉🎉🎉 Our preprint paper has been submitted to [medRxiv](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1).
 
 ## Contents
 - [What makes Medical Hallucination Special?](#difference)
@@ -14,7 +28,13 @@ Foundation Models that are capable of processing and generating multi-modal data
 
 ## What makes Medical Hallucination Special? <a name="difference"></a>
 
-<img src="./imgs/taxonomy.png" alt="Taxonomy" width="400">
+<figure>
+    <img src="./images/taxonomy.png" alt="Taxonomy" width="500">
+    <figcaption>Figure 1. A visual taxonomy of medical hallucinations in LLMs, organized into five main clusters.</figcaption>
+</figure>
+
+<br><br>
+
 
 Our primary contributions include:
 
