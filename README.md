@@ -1,5 +1,5 @@
 <div align=center>
-<img src="./images/logo.png" width="180px">
+<img src="./images/mh_logo.png" width="120px">
 </div>
 <h2 align="center"><a href="https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1"> Medical Hallucination in Foundation Models and Their Impact on Healthcare </a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
@@ -19,12 +19,19 @@ Foundation Models that are capable of processing and generating multi-modal data
 ##  📣 News
 [2025-03-03] 🎉🎉🎉 Our preprint paper has been submitted to [medRxiv](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1).
 
+## ⚡ Contact
+
+If you want to add your work or model to this list, please do not hesitate to email ybkim95@mit.edu.
+
 ## Contents
 - [What makes Medical Hallucination Special?](#difference)
 - [Hallucinations in Medical LLMs](#llms)
+- [Survey on Medical Hallucination among Healthcare Professionals](#survey)
 - [Medical Hallucination Benchmarks](#benchmarks)
+- [LLM Experiments on Medical Hallucination Benchmark](#llm-exp)
 - [Detection Methods for Medical Hallucination](#detection)
 - [Mitigation Methods for Medical Hallucination](#mitigation)
+- [Human Physicians' Medical Hallucination Annotation](#annotation)
 
 ## What makes Medical Hallucination Special? <a name="difference"></a>
 
@@ -35,6 +42,7 @@ Foundation Models that are capable of processing and generating multi-modal data
 
 <br><br>
 
+LLM hallucinations refer to outputs that are factually incorrect, logically inconsistent, or inadequately grounded in reliable sources. In general domains, these hallucinations may take the form of factual errors or non-sequiturs. In medicine, they can be more challenging to detect because the language used often appears clinically valid while containing critical inaccuracies. Medical hallucinations exhibit two distinct features compared to their general-purpose counterparts. First, they arise within specialized tasks such as diagnostic reasoning, therapeutic planning, or interpretation of laboratory findings, where inaccuracies have immediate implications for patient care. Second, these hallucinations frequently use domain-specific terms and appear to present coherent logic, which can make them difficult to recog- nize without expert scrutiny. In settings where clinicians or patients rely on AI recommendations, a tendency potentially heightened in domains like medicine, unrecognized errors risk delaying proper interventions or redirecting care pathways. Moreover, the impact of medical hallucinations is far more severe. Errors in clinical reasoning or misleading treatment recommendations can directly harm patients by delaying proper care or leading to inappropriate interventions. Furthermore, the detectability of such hallucinations depends on the level of domain expertise of the audience and the quality of the prompting provided to the model. Domain experts are more likely to identify subtle inaccuracies in clinical terminology and reasoning, whereas non-experts may struggle to discern these errors, thereby increasing the risk of misinterpretation. These distinctions are crucial: whereas general hallucinations might lead to relatively benign mistakes, medical hallucinations can undermine patient safety and erode trust in AI-assisted clinical systems.
 
 Our primary contributions include:
 
@@ -42,8 +50,9 @@ Our primary contributions include:
 2. **Benchmarking models** using a medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations.
 3. A **multi-national clinician survey** on their experiences with medical hallucinations.
 
-These contributions collectively *advance our understanding of medical hallucinations and their mitigation strategies*, with implications extending to regulatory frameworks and best practices for the deployment of AI in clinical
- settings.
+These contributions collectively *advance our understanding of medical hallucinations and their mitigation strategies*, with implications extending to regulatory frameworks and best practices for the deployment of AI in clinical settings.
+
+<br>
 
 ## Hallucinations in Medical LLMs <a name="llms"></a>
 Please refer to table 1 of our paper for examples of medical hallucination in clinical tasks, and table 2 for an organized taxonomy of medical hallucination. 
@@ -55,6 +64,21 @@ Please refer to table 1 of our paper for examples of medical hallucination in cl
 | [Mechanistic Understanding and Mitigation of Language Model Non-Factual Hallucinations](https://arxiv.org/pdf/2403.18167v2) |  University of Toronto<br>McGill University<br>Mila– Québec AI Institute<br>University of California, Riverside | 2024-06 | N/A
 | [Language models are susceptible to incorrect patient self diagnosis in medical applications](https://arxiv.org/pdf/2309.09362) | University of Maryland, College Park<br>Johns Hopkins University | 2023-09 | N/A
 | [The Dawn After the Dark: An Empirical Study on Factuality Hallucination in Large Language Models](https://arxiv.org/pdf/2401.03205) | Renmin University of China<br>Université de Montréal | 2024-01 | https://github.com/RUCAIBox/HaluEval-2.0
+
+<br>
+
+## Survey on Medical Hallucination among Healthcare Professionals <a name="survey"></a>
+
+To investigate the perceptions and experiences of healthcare professionals and researchers regarding the use of AI / LLM tools, particularly regarding medical hallucinations, we conducted a survey aimed at individuals in the medical, research, and analytical fields (Figure 9). A total of 75 professionals participated, primarily holding MD and/or PhD degrees, representing a diverse range of disciplines. The survey was conducted over a 94-day period, from September 15, 2024, to December 18, 2024, confirming the significant adoption of AI/LLM tools across these fields. Respondents indicated varied levels of trust in these tools, and notably, a substantial proportion reported encountering medical hallucinations—factually incorrect yet plausible outputs with medical relevance—in tasks critical to their work, such as literature reviews and clinical decision-making. Participants described employing verification strategies like cross-referencing and colleague consultation to manage these inaccuracies.
+
+<figure>
+    <img src="./images/survey1.png" alt="Taxonomy" width="700">
+	<img src="./images/survey2.png" alt="Taxonomy" width="700">
+    <figcaption>Figure 9. Key insights from a multi-national clinician survey on medical hallucinations in clinical practice.</figcaption>
+</figure>
+
+<br><br>
+
 
 ## Medical Hallucination Benchmarks <a name="benchmarks"></a>
 Please refer to table 3 of our paper for details on medical hallucination benchmarks. 
@@ -69,6 +93,21 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 | [Grounding LLMs to In-prompt Instructions: Reducing Hallucinations Caused by Static Pre-training Knowledge](https://aclanthology.org/2024.safety4convai-1.1/) | Heriot-Watt University | 2024-05 | https://github.com/AddleseeHQ/in-prompt-grounding
 | [Medical Expert Annotations of Unsupported Facts in Doctor-Written and LLM-Generated Patient Summaries](https://physionet.org/content/ann-pt-summ/1.0.0/) | University of Münster <br> MIT <br> Duke University | 2024-04 | https://github.com/stefanhgm/patient_summaries_with_llms
 | [MedHallBench: A New Benchmark for Assessing Hallucination in Medical Large Language Models](https://arxiv.org/abs/2412.18947) | University of Warwick <br> Cranfield University <br> University of Oxford | 2025-01 | N/A
+
+<br>
+
+## LLM Experiments on Medical Hallucination Benchmark <a name="llm-exp"></a>
+
+<figure>
+    <img src="./images/exp1.png" alt="Taxonomy" width="700">
+    <img src="./images/exp2.png" alt="Taxonomy" width="700">
+    <figcaption>Figure 5. Hallucination Pointwise Score vs. Similarity Score of LLMs on Med-Halt hallucination benchmark.</figcaption>
+</figure>
+
+This result reveals that the recent models (e.g. o3-mini, deepseek-r1, and gemini-2.0-flash) typically start with high baseline hallucination resistance and tend to see moderate but consistent gains from a simple
+CoT, while previous models including medical-purpose LLMs often begin at low hallucination resistance yet can benefit from different approaches (e.g. Search, CoT, and System Prompt). Moreover, retrieval-augmented generation can be less effective if the model struggles to reconcile retrieved information with its internal knowledge.
+
+<br>
 
 ## Dection Methods for Medical Hallucination <a name="detection"></a>
 ### Type 1: Factual Verification <a name="detection"></a>
@@ -93,6 +132,8 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 | [Detecting hallucinations in large language models using semantic entropy](https://www.nature.com/articles/s41586-024-07421-0) | University of Oxford | 2024-06 | https://github.com/jlko/semantic_uncertainty <br> https://github.com/jlko/long_hallucinations
 | [Decomposing Uncertainty for Large Language Models through Input Clarification Ensembling](https://arxiv.org/pdf/2311.08718) | UC Santa Barbara <br> MIT-IBM Watson AI Lab, IBM Research <br> MIT CSAIL| 2024-06 | https://github.com/UCSB-NLP-Chang/llm_uncertainty
 
+<br>
+
 ## Mitigation Methods for Medical Hallucination <a name="mitigation"></a>
 | Title | Institute | Date | Code
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------: | :-----------: | :-------------: |
@@ -105,6 +146,19 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 | [Towards Mitigating Hallucination in Large Language Models via Self-Reflection](https://arxiv.org/pdf/2310.06271) | Center for Artificial Intelligence Research (CAiRE) <br> Hong Kong University of Science and Technology| 2023-10 | https://github.com/ziweiji/Self_Reflection_Medical
 | [Mitigating Hallucinations in Large Language Models via Semantic Enrichment of Prompts: Insights from BioBERT and Ontological Integration](https://aclanthology.org/2024.clib-1.30/) | Sofia University | 2024-09 | N/A
 | [Chain-of-Knowledge: Grounding Large Language Models via Dynamic Knowledge Adapting over Heterogeneous Sources](https://export.arxiv.org/pdf/2305.13269) | DAMOAcademy, Alibaba Group <br> Nanyang Technological University <br> Singapore University of Technology and Design <br> Salesforce Research <br> Hupan Lab | 2024-02 | https://github.com/DAMO-NLP-SG/chain-of-knowledge
+
+<br>
+
+## Human Physicians' Medical Hallucination Annotation <a name="annotation"></a>
+
+<figure>
+    <img src="./images/annotation.png" alt="Taxonomy" width="800">
+    <figcaption>Figure 6. An annotation process of medical hallucinations in LLMs.</figcaption>
+</figure>
+
+
+
+<br>
 
 ## 📑 Citation
 
