@@ -18,6 +18,14 @@ Our experiments reveal that inference techniques such as Chain-of-Thought (CoT),
 - [Mitigation Methods for Medical Hallucination](#mitigation)
 
 ## What makes Medical Hallucination Special? <a name="difference"></a>
+Our primary contributions include:
+
+1. A **taxonomy** for medical hallucination in Large Language Models
+2. **Benchmarking models** using a medical hallucination dataset and physician-annotated LLM responses to real medical cases, providing direct insight into the clinical impact of hallucinations.
+3. A **multi-national clinician survey** on their experiences with medical hallucinations.
+
+These contributions collectively *advance our understanding of medical hallucinations and their mitigation strategies*, with implications extending to regulatory frameworks and best practices for the deployment of AI in clinical
+ settings.
 
 ## Hallucinations in Medical LLMs <a name="llms"></a>
 Please refer to table 1 of our paper for examples of medical hallucination in clinical tasks, and table 2 for an organized taxonomy of medical hallucination. 
@@ -30,11 +38,9 @@ Please refer to table 1 of our paper for examples of medical hallucination in cl
 | [Language models are susceptible to incorrect patient self diagnosis in medical applications](https://arxiv.org/pdf/2309.09362) | University of Maryland, College Park<br>Johns Hopkins University | 2023-09 | N/A
 | [The Dawn After the Dark: An Empirical Study on Factuality Hallucination in Large Language Models](https://arxiv.org/pdf/2401.03205) | Renmin University of China<br>Université de Montréal | 2024-01 | https://github.com/RUCAIBox/HaluEval-2.0
 
-
-
 ## Medical Hallucination Benchmarks <a name="benchmarks"></a>
 Please refer to table 3 of our paper for details on medical hallucination benchmarks. 
-| Title | Institute | Date | Code/Dataset
+| Title | Institute | Date | Code 
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------: | :-----------: | :-------------: |
 | [Med-HALT: Medical Domain Hallucination Test for Large Language Models](https://arxiv.org/abs/2307.15343) | Saama AI Research | 2023-10 | [https://medhalt.github.io/](https://medhalt.github.io/)
 | [Hallucination benchmark in medical visual question answering](https://arxiv.org/abs/2401.05827v2) | University College London | 2024-04 | https://github.com/knowlab/halt-medvqa
@@ -72,7 +78,15 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 ## Mitigation Methods for Medical Hallucination <a name="mitigation"></a>
 | Title | Institute | Date | Code
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------: | :-----------: | :-------------: |
-| [MedHallBench: A New Benchmark for Assessing Hallucination in Medical Large Language Models](https://arxiv.org/abs/2412.18947) | University of Warwick <br> Cranfield University <br> University of Oxford | 2025-01 | N/A
+| [SYNFAC-EDIT: Synthetic Imitation Edit Feedback for Factual Alignment in Clinical Summarization](https://arxiv.org/pdf/2402.13919) | University of Massachusetts, Amherst <br> Fudan University <br> University of Massachusetts, Lowell | 2024-10 | N/A
+| [Benchmarking Retrieval-Augmented Generation for Medicine](https://aclanthology.org/2024.findings-acl.372.pdf) | Univeristy of Virginia <br> National Library of Medicine <br> National Institutes of Health | 2024-08 | https://teddy-xionggz.github.io/benchmark-medical-rag/
+| [Enhancement of the Performance of Large Language Models in Diabetes Education through Retrieval-Augmented Generation: Comparative Study](https://www.jmir.org/2024/1/e58041) | State Key Laboratory of Ophthalmology <br> Zhongshan Ophthalmic Center <br> Sun Yat-sen University <br> Guangdong Provincial Key Laboratory of Ophthalmology and Visual Science <br> Guangdong Provincial Clinical Research Center for Ocular Diseases <br> Research Centre for SHARP Vision <br> The Hong Kong Polytechnic University <br> Peking University Third Hospital | 2024-08 | N/A
+| [Improving Retrieval-Augmented Generation in Medicine with Iterative Follow-up Questions](https://arxiv.org/pdf/2408.00727) | University of Virginia <br> National Institutes of Health <br> University of Illinois Urbana-Champaign | 2024-10 | N/A
+| [Knowledge Graphs, Large Language Models, and Hallucinations: An NLP Perspective](https://arxiv.org/pdf/2411.14258) | Aalborg University <br> TU Wien <br> Institute of Logic and Computation | 2024-11 | N/A
+| [CoMT: Chain-of-Medical-Thought Reduces Hallucination in Medical Report Generation](https://arxiv.org/pdf/2406.11451v4) | Fudan University <br> Tencent YouTu Lab <br> Xiamen University <br> Cognition and Intelligent Technology Laboratory <br> Institute of Meta-Medical <br> Ministry of Education <br> Jilin Provincial Key Laboratory of Intelligence Science and Engineering | 2025-02 | https://github.com/FRENKIE-CHIANG/CoMT
+| [Towards Mitigating Hallucination in Large Language Models via Self-Reflection](https://arxiv.org/pdf/2310.06271) | Center for Artificial Intelligence Research (CAiRE) <br> Hong Kong University of Science and Technology| 2023-10 | https://github.com/ziweiji/Self_Reflection_Medical
+| [Mitigating Hallucinations in Large Language Models via Semantic Enrichment of Prompts: Insights from BioBERT and Ontological Integration](https://aclanthology.org/2024.clib-1.30/) | Sofia University | 2024-09 | N/A
+| [Chain-of-Knowledge: Grounding Large Language Models via Dynamic Knowledge Adapting over Heterogeneous Sources](https://export.arxiv.org/pdf/2305.13269) | DAMOAcademy, Alibaba Group <br> Nanyang Technological University <br> Singapore University of Technology and Design <br> Salesforce Research <br> Hupan Lab | 2024-02 | https://github.com/DAMO-NLP-SG/chain-of-knowledge
 
 ## 📑 Citation
 
