@@ -6,8 +6,8 @@
 
 <h5 align="center">
 
-
    [![medrxiv](https://img.shields.io/badge/medRxiv-2025.02.28.25323115-red)](https://www.medrxiv.org/content/10.1101/2025.02.28.25323115v1)
+   [![Website](https://img.shields.io/badge/Project-Website-blue)](https://medical-hallucination2025.github.io/)
 
 
 </h5>
