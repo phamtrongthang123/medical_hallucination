@@ -174,6 +174,17 @@ To qualitatively assess the LLM’s clinical reasoning abilities, we designed th
 Please consider citing 📑 our paper if our repository is helpful to your work, thanks sincerely!
 
 ```
+@article{kim2025medical,
+  title={Medical Hallucination in Foundation Models and Their Impact on Healthcare},
+  author={Kim, Yubin and Jeong, Hyewon and Chen, Shen and Li, Shuyue Stella and Lu, Mingyu and Alhamoud, Kumail and Mun, Jimin and Grau, Cristina and Jung, Minseok and Gameiro, Rodrigo R and others},
+  journal={medRxiv},
+  pages={2025--02},
+  year={2025},
+  publisher={Cold Spring Harbor Laboratory Press}
+}
+```
+
+```
 @article {Kim2025.02.28.25323115,
 	author = {Kim, Yubin and Jeong, Hyewon and Chen, Shen and Li, Shuyue Stella and Lu, Mingyu and Alhamoud, Kumail and Mun, Jimin and Grau, Cristina and Jung, Minseok and Gameiro, Rodrigo R and Fan, Lizhou and Park, Eugene and Lin, Tristan and Yoon, Joonsik and Yoon, Wonjin and Sap, Maarten and Tsvetkov, Yulia and Liang, Paul Pu and Xu, Xuhai and Liu, Xin and McDuff, Daniel and Lee, Hyeonhoon and Park, Hae Won and Tulebaev, Samir R and Breazeal, Cynthia},
 	title = {Medical Hallucination in Foundation Models and Their Impact on Healthcare},
