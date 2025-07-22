@@ -9,8 +9,6 @@ Please refer to table 1 of our paper for examples of medical hallucination in cl
 
 <br>
 
-## Survey on Medical Hallucination among Healthcare Professionals <a name="survey"></a>
-
 
 
 ## Medical Hallucination Benchmarks <a name="benchmarks"></a>
@@ -67,5 +65,4 @@ Please refer to table 3 of our paper for details on medical hallucination benchm
 <br>
 
 
-}
-```
+
