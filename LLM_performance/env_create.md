@@ -36,7 +36,7 @@ uv pip install einops==0.6.1 \
     numpy==1.26.0 \
     requests \
     sentencepiece==0.1.99 \
-    tokenizers>=0.12.1 \
+    tokenizers \
     torch==2.0.1 \
     torchvision==0.15.2 \
     uvicorn \
@@ -45,7 +45,7 @@ uv pip install einops==0.6.1 \
     httpx==0.24.0 \
     deepspeed==0.9.5 \
     peft==0.4.0 \
-    transformers==4.31.0 \
+    transformers \
     accelerate==0.21.0 \
     bitsandbytes==0.41.0 \
     scikit-learn==1.2.2 \
@@ -57,4 +57,6 @@ uv pip install einops==0.6.1 \
     rouge_score \
     statsmodels \
     sacrebleu
+
+
 ```
