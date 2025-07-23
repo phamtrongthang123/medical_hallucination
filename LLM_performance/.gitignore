@@ -1,5 +1,4 @@
 *.log
 *.pyc
 *.wandb
-eval/
-*.json 
+eval/wandb
