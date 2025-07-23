@@ -7,3 +7,6 @@ uv pip install -U transformers torch torchvision
 uv pip install accelerate 
 ```
 
+```bash
+CUDA_VISIBLE_DEVICES=0 python medgemma_example.py
+```
