@@ -42,7 +42,8 @@ def process_batch(batch_paths):
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": "Provide a description of the findings in the radiology image"},
+                    # {"type": "text", "text": "Provide a description of the findings in the radiology image"},
+                    {"type": "text", "text": "Describe the findings of the chest x-ray in a paragraph with short sentences."},
                     {"type": "image", "image": image}
                 ]
             }

@@ -2,7 +2,7 @@ import json
 
 def update_predictions():
     # Load File A (Gemma results) - JSON format
-    with open('result_full.json', 'r') as f:
+    with open('result.json', 'r') as f:
         gemma_results = json.load(f)
     
     # Create a mapping from image ID to prediction
