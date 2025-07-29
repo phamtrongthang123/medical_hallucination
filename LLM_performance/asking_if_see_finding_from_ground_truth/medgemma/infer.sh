@@ -35,4 +35,4 @@ mkdir -p /scrfs/storage/tp030/home/.cache/huggingface/hub
 mkdir -p /scrfs/storage/tp030/home/.cache/huggingface/transformers
 
 
-python infer_all_mimic_eye.py
+python infer_all_mimic_eye.py --root_dir "~/mimic-eye"
