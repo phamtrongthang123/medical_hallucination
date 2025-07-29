@@ -1,3 +1,4 @@
+# run: time python inference.py
 import snoop
 
 snoop.install(out="debug_output.txt")
@@ -13,10 +14,11 @@ def main():
 
     model = Gemma3ForConditionalGeneration.from_pretrained(
         model_id,
-        torch_dtype=torch.bfloat16,
-        device_map="auto",
+        torch_dtype=torch.float32,  # Change from bfloat16 to float32 for CPU
+        device_map="cpu",  # Force CPU usage
+        attn_implementation="eager",
     )
-    processor = Gemma3Processor.from_pretrained(model_id)
+    processor = Gemma3Processor.from_pretrained(model_id, use_fast=True)
 
     # Load your list of images
     import json
@@ -69,8 +71,9 @@ def main():
         generation_ = generation.sequences[0][input_len:]
 
     decoded = processor.decode(generation_, skip_special_tokens=True)
-    print(decoded)
+    print(decoded) # The lungs appear clear bilaterally. There is no evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits. The mediastinal contours are unremarkable. The visualized bony structures are intact. There are no obvious acute findings.
     print(attention_scores)
+    torch.save(attention_scores, 'attention_scores.pt')
 
 
 if __name__ == "__main__":
