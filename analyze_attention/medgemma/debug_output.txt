@@ -1,0 +1,151 @@
+19:11:06.72 >>> Call to main in File "/home/ptthang/medical_hallucination/analyze_attention/medgemma/inference.py", line 5
+19:11:06.72    5 | def main():
+19:11:06.72    7 |     import torch
+19:11:07.66 .......... torch = <module 'torch' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/site-packages/torch/__init__.py'>
+19:11:07.66 .......... torch.dtype = <class 'torch.dtype'>
+19:11:07.66    8 |     from PIL import Image
+19:11:07.68 .......... Image = <module 'PIL.Image' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/site-packages/PIL/Image.py'>
+19:11:07.68    9 |     from transformers import AutoModelForImageTextToText, AutoProcessor
+19:11:09.70 .......... AutoModelForImageTextToText = <class 'transformers.models.auto.modeling_auto.AutoModelForImageTextToText'>
+19:11:09.70 .......... AutoProcessor = <class 'transformers.models.auto.processing_auto.AutoProcessor'>
+19:11:09.70   11 |     model_id = "google/medgemma-4b-it"
+19:11:09.70 .......... model_id = 'google/medgemma-4b-it'
+19:11:09.70   13 |     model = AutoModelForImageTextToText.from_pretrained(
+19:11:09.70   14 |         model_id,
+19:11:09.70   15 |         torch_dtype=torch.bfloat16,
+19:11:09.70   16 |         device_map="auto",
+19:11:09.70   13 |     model = AutoModelForImageTextToText.from_pretrained(
+19:11:12.28 .......... model = Gemma3ForConditionalGeneration(
+19:11:12.28                      (model): Gemma...features=2560, out_features=262208, bias=False)
+19:11:12.28                    )
+19:11:12.28 .......... model.dtype = torch.bfloat16
+19:11:12.28   18 |     processor = AutoProcessor.from_pretrained(model_id)
+19:11:15.93 .......... processor = Gemma3Processor:
+19:11:15.93                        - image_processor: Gemma3ImageP...": 256,
+19:11:15.93                          "processor_class": "Gemma3Processor"
+19:11:15.93                        }
+19:11:15.93   21 |     import json
+19:11:16.72 .......... json = <module 'json' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/json/__init__.py'>
+19:11:16.72   22 |     from tqdm import tqdm
+19:11:17.54 .......... tqdm = <class 'tqdm.std.tqdm'>
+19:11:17.54   23 |     import os
+19:11:18.34 .......... os = <module 'os' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/os.py'>
+19:11:18.34   25 |     with open('./jpg_files_list.json') as f:
+19:11:19.14 .......... f = <_io.TextIOWrapper name='./jpg_files_list.json' mode='r' encoding='UTF-8'>
+19:11:19.14   26 |         a = json.load(f)
+19:11:19.95 .............. a = {'total_files': 100, 'file_paths': ['patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg', 'patient_10046282/CXR-JPG/s59720796/9c5c9f70-5499fd6f-b612606d-ab74edeb-dd3cafcc.jpg', 'patient_10103748/CXR-JPG/s55934580/7ed1f69a-e4a37198-cf7fd299-1a0275fd-e5fa6960.jpg', ..., 'patient_10097612/CXR-JPG/s51968731/56c0a346-5cab34f9-9b563188-5fad94b0-1f54ff7c.jpg', 'patient_10097612/CXR-JPG/s51968731/293fca34-b49ffe0f-52f4185e-1dd82a6a-7976d653.jpg', 'patient_10097612/CXR-JPG/s51968731/df21d00a-917fff26-04708364-bf740ae0-a3e66f95.jpg'], 'root': '/media/ptthang/Seagate12T_Thang1/mimic-eye-integ...imodal-deep-learning-applications-1.0.0/mimic-eye'}
+19:11:19.95 .............. len(a) = 3
+19:11:19.95   27 |         image_list = a['file_paths']
+19:11:20.76 .............. image_list = ['patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg', 'patient_10046282/CXR-JPG/s59720796/9c5c9f70-5499fd6f-b612606d-ab74edeb-dd3cafcc.jpg', 'patient_10103748/CXR-JPG/s55934580/7ed1f69a-e4a37198-cf7fd299-1a0275fd-e5fa6960.jpg', ..., 'patient_10097612/CXR-JPG/s51968731/56c0a346-5cab34f9-9b563188-5fad94b0-1f54ff7c.jpg', 'patient_10097612/CXR-JPG/s51968731/293fca34-b49ffe0f-52f4185e-1dd82a6a-7976d653.jpg', 'patient_10097612/CXR-JPG/s51968731/df21d00a-917fff26-04708364-bf740ae0-a3e66f95.jpg']
+19:11:20.76 .............. len(image_list) = 100
+19:11:20.76   28 |         root_dir = a['root']
+19:11:21.57 .............. root_dir = '/media/ptthang/Seagate12T_Thang1/mimic-eye-integ...imodal-deep-learning-applications-1.0.0/mimic-eye'
+19:11:21.57 .............. len(root_dir) = 153
+19:11:21.57   25 |     with open('./jpg_files_list.json') as f:
+19:11:22.37   30 |     results = [] 
+19:11:23.16   31 |     batch_size = 10
+19:11:23.98   33 |     image_path = image_list[0]
+19:11:24.79 .......... image_path = 'patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg'
+19:11:24.79 .......... len(image_path) = 83
+19:11:24.79   34 |     image = Image.open(os.path.join(root_dir, image_path))
+19:11:25.60 .......... image = <PIL.JpegImagePlugin.JpegImageFile image mode=L size=2544x3056 at 0x7E5064051D80>
+19:11:25.60   36 |     messages = [
+19:11:25.60   37 |         {
+19:11:25.60   38 |             "role": "system",
+19:11:26.41   39 |             "content": [{"type": "text", "text": "You are an expert radiologist."}]
+19:11:27.21   37 |         {
+19:11:28.01   42 |             "role": "user",
+19:11:28.82   44 |                 {"type": "text", "text": "Describe the findings of the chest x-ray in a paragraph with short sentences."},
+19:11:29.61   45 |                 {"type": "image", "image": image}
+19:11:30.43   43 |             "content": [
+19:11:31.22   41 |         {
+19:11:32.03   36 |     messages = [
+19:11:32.83 .......... messages = [{'role': 'system', 'content': [{...}]}, {'role': 'user', 'content': [{...}, {...}]}]
+19:11:32.83 .......... len(messages) = 2
+19:11:32.83   50 |     inputs = processor.apply_chat_template(
+19:11:33.63   51 |         messages, add_generation_prompt=True, tokenize=True,
+19:11:34.42   52 |         return_dict=True, return_tensors="pt"
+19:11:35.24   50 |     inputs = processor.apply_chat_template(
+19:11:36.16   53 |     ).to(model.device, dtype=torch.bfloat16)
+19:11:37.00   50 |     inputs = processor.apply_chat_template(
+19:11:37.89 .......... inputs = BatchFeature({'input_ids': tensor([[     2,    105,   2364,    107,   3048,...  107,    105,   4368,    107]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1,
+19:11:37.89                              1, 1, 1, 1, 1]], device='cuda:0'), 'token_type_ids': tensor([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 0, 0,
+19:11:37.89                              0, 0, 0, 0, 0]], device='cuda:0'), 'pixel_values': tensor([[[[-1., -1., -1.,  ..., -1., -1., -1.],
+19:11:37.89                     ...]], device='cuda:0',
+19:11:37.89                            dtype=torch.bfloat16)})
+19:11:37.89 .......... len(inputs) = 4
+19:11:37.89   55 |     input_len = inputs["input_ids"].shape[-1]
+19:11:38.75 .......... input_len = 293
+19:11:38.75   57 |     with torch.inference_mode():
+19:11:39.57   58 |         generation = model.generate(
+19:11:40.36   59 |             **inputs, 
+19:11:41.18   58 |         generation = model.generate(
+19:11:42.00   60 |             max_new_tokens=200, 
+19:11:42.81   61 |             do_sample=False
+19:11:43.62   58 |         generation = model.generate(
+19:11:50.95 .............. generation = tensor([[     2,    105,   2364,    107,   3048,...       236761,    107,    106]], device='cuda:0')
+19:11:50.95 .............. generation.shape = (1, 345)
+19:11:50.95 .............. generation.dtype = torch.int64
+19:11:50.95   63 |         generation = generation[0][input_len:]
+19:11:51.70 .............. generation = tensor([   818,  38464,   3196,   3582,   8039, ... 236761,    107,    106],
+19:11:51.70                                    device='cuda:0')
+19:11:51.70 .............. generation.shape = (52,)
+19:11:51.70   57 |     with torch.inference_mode():
+19:11:52.46   65 |     decoded = processor.decode(generation, skip_special_tokens=True)
+19:11:53.21 .......... decoded = 'The lungs appear clear bilaterally. There is no ...are intact. There are no obvious acute findings.\n'
+19:11:53.21 .......... len(decoded) = 265
+19:11:53.21   66 |     print(decoded)
+19:11:53.96 <<< Return value from main: None
+19:15:28.89 >>> Call to main in File "inference.py", line 7
+19:15:28.89    7 | def main():
+19:15:28.90    9 |     import torch
+19:15:29.94 .......... torch = <module 'torch' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/site-packages/torch/__init__.py'>
+19:15:29.94 .......... torch.dtype = <class 'torch.dtype'>
+19:15:29.94   10 |     from PIL import Image
+19:15:29.95 .......... Image = <module 'PIL.Image' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/site-packages/PIL/Image.py'>
+19:15:29.95   11 |     from transformers import AutoModelForImageTextToText, AutoProcessor
+19:15:31.94 .......... AutoModelForImageTextToText = <class 'transformers.models.auto.modeling_auto.AutoModelForImageTextToText'>
+19:15:31.94 .......... AutoProcessor = <class 'transformers.models.auto.processing_auto.AutoProcessor'>
+19:15:31.94   13 |     model_id = "google/medgemma-4b-it"
+19:15:31.94 .......... model_id = 'google/medgemma-4b-it'
+19:15:31.94   15 |     model = AutoModelForImageTextToText.from_pretrained(
+19:15:31.94   16 |         model_id,
+19:15:31.94   17 |         torch_dtype=torch.bfloat16,
+19:15:31.94   18 |         device_map="auto",
+19:15:31.94   15 |     model = AutoModelForImageTextToText.from_pretrained(
+19:15:34.57 .......... model = Gemma3ForConditionalGeneration(
+19:15:34.57                      (model): Gemma...features=2560, out_features=262208, bias=False)
+19:15:34.57                    )
+19:15:34.57 .......... model.dtype = torch.bfloat16
+19:15:34.57   20 |     processor = AutoProcessor.from_pretrained(model_id)
+19:15:38.52 .......... processor = Gemma3Processor:
+19:15:38.52                        - image_processor: Gemma3ImageP...": 256,
+19:15:38.52                          "processor_class": "Gemma3Processor"
+19:15:38.52                        }
+19:15:38.52   23 |     import json
+19:15:39.42 .......... json = <module 'json' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/json/__init__.py'>
+19:15:39.42   24 |     import os
+19:15:40.29 .......... os = <module 'os' from '/home/ptthang/miniforge3/envs/medgemma/lib/python3.10/os.py'>
+19:15:40.29   26 |     with open("./jpg_files_list.json") as f:
+19:15:41.10 .......... f = <_io.TextIOWrapper name='./jpg_files_list.json' mode='r' encoding='UTF-8'>
+19:15:41.10   27 |         a = json.load(f)
+19:15:41.95 .............. a = {'total_files': 100, 'file_paths': ['patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg', 'patient_10046282/CXR-JPG/s59720796/9c5c9f70-5499fd6f-b612606d-ab74edeb-dd3cafcc.jpg', 'patient_10103748/CXR-JPG/s55934580/7ed1f69a-e4a37198-cf7fd299-1a0275fd-e5fa6960.jpg', ..., 'patient_10097612/CXR-JPG/s51968731/56c0a346-5cab34f9-9b563188-5fad94b0-1f54ff7c.jpg', 'patient_10097612/CXR-JPG/s51968731/293fca34-b49ffe0f-52f4185e-1dd82a6a-7976d653.jpg', 'patient_10097612/CXR-JPG/s51968731/df21d00a-917fff26-04708364-bf740ae0-a3e66f95.jpg'], 'root': '/media/ptthang/Seagate12T_Thang1/mimic-eye-integ...imodal-deep-learning-applications-1.0.0/mimic-eye'}
+19:15:41.95 .............. len(a) = 3
+19:15:41.95   28 |         image_list = a["file_paths"]
+19:15:42.77 .............. image_list = ['patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg', 'patient_10046282/CXR-JPG/s59720796/9c5c9f70-5499fd6f-b612606d-ab74edeb-dd3cafcc.jpg', 'patient_10103748/CXR-JPG/s55934580/7ed1f69a-e4a37198-cf7fd299-1a0275fd-e5fa6960.jpg', ..., 'patient_10097612/CXR-JPG/s51968731/56c0a346-5cab34f9-9b563188-5fad94b0-1f54ff7c.jpg', 'patient_10097612/CXR-JPG/s51968731/293fca34-b49ffe0f-52f4185e-1dd82a6a-7976d653.jpg', 'patient_10097612/CXR-JPG/s51968731/df21d00a-917fff26-04708364-bf740ae0-a3e66f95.jpg']
+19:15:42.77 .............. len(image_list) = 100
+19:15:42.77   29 |         root_dir = a["root"]
+19:15:43.59 .............. root_dir = '/media/ptthang/Seagate12T_Thang1/mimic-eye-integ...imodal-deep-learning-applications-1.0.0/mimic-eye'
+19:15:43.59 .............. len(root_dir) = 153
+19:15:43.59   26 |     with open("./jpg_files_list.json") as f:
+19:15:44.40   31 |     image_path = image_list[0]
+19:15:45.23 .......... image_path = 'patient_10046282/CXR-JPG/s59720796/05361238-0987cf83-00425fb2-56ed7bdb-14e821da.jpg'
+19:15:45.23 .......... len(image_path) = 83
+19:15:45.23   32 |     image = Image.open(os.path.join(root_dir, image_path))
+19:15:46.04 .......... image = <PIL.JpegImagePlugin.JpegImageFile image mode=L size=2544x3056 at 0x7A8F731D3940>
+19:15:46.04   34 |     messages = [
+19:15:46.04   35 |         {
+19:15:46.04   36 |             "role": "system",
+19:15:46.84   37 |             "content": [{"type": "text", "text": "You are an expert radiologist."}],
+19:15:47.65   35 |         {
+19:15:48.44   40 |             "role": "user",
