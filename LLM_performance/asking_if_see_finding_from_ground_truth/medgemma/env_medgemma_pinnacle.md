@@ -10,3 +10,5 @@ uv pip install accelerate
 ```bash
 python infer_all_mimic_eye.py
 ```
+
+ sbatch -N1 -n24 -c1 -p condo --constraint '8a6000' -t 288:00:00 myscript.sh
