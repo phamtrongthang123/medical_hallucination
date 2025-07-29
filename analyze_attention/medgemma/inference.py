@@ -1,7 +1,10 @@
 # run: time python inference.py
+# real    0m58.298s
+# user    8m31.243s
+# sys     1m3.626s
 import snoop
 
-snoop.install(out="debug_output.txt")
+snoop.install()
 
 
 def main():
@@ -18,8 +21,13 @@ def main():
         device_map="cpu",  # Force CPU usage
         attn_implementation="eager",
     )
+    print("=========================")
+    print(model)
+    print("=========================")
     processor = Gemma3Processor.from_pretrained(model_id, use_fast=True)
-
+    print("=========================")
+    print(processor)
+    print("=========================")
     # Load your list of images
     import json
     import os
@@ -71,10 +79,31 @@ def main():
         generation_ = generation.sequences[0][input_len:]
 
     decoded = processor.decode(generation_, skip_special_tokens=True)
-    print(decoded) # The lungs appear clear bilaterally. There is no evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits. The mediastinal contours are unremarkable. The visualized bony structures are intact. There are no obvious acute findings.
+    print("=========================")
+    print(
+        decoded
+    )  # The lungs appear clear bilaterally. There is no evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits. The mediastinal contours are unremarkable. The visualized bony structures are intact. There are no obvious acute findings.
+    print("=========================")
     print(attention_scores)
-    torch.save(attention_scores, 'attention_scores.pt')
+    print("=========================")
+    torch.save(attention_scores, "attention_scores.pt")
+    torch.save(decoded, "decoded.pt")
 
 
 if __name__ == "__main__":
+    import os
+    import sys
+
+    log_dir = "./log"
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    stdout_dir = os.path.join(log_dir, "stdout.txt")
+    stderr_dir = os.path.join(log_dir, "stderr.txt")
+
+    sys.stdout = open(stdout_dir, "w")
+    sys.stderr = open(stderr_dir, "w")
+
     main()
+
+    sys.stdout.close()
+    sys.stderr.close()
