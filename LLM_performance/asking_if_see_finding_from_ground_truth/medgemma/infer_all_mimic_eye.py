@@ -19,14 +19,14 @@ processor = AutoProcessor.from_pretrained(model_id)
 
 
 root_dir = "/scr/thang._./mimic-eye/mimic-eye-integrating-mimic-datasets-with-reflacx-and-eye-gaze-for-multimodal-deep-learning-applications-1.0.0/mimic-eye"
-with open("./dicom_question_paris.json") as f:
+with open("./dicom_question_pairs.json") as f:
     image_question_pairs = json.load(f)
 
 
 results = []
 
 # Batch processing parameters
-batch_size = 10  # Adjust based on your GPU memory
+batch_size = 1  # the question length will be different, and i don't know what to pad here. I chose the safer way: set batch = 1 
 
 
 def process_batch(batch_paths):
@@ -67,6 +67,7 @@ def process_batch(batch_paths):
     # All inputs should have the same keys from apply_chat_template
     batch_inputs = {}
     for key in batch_inputs_list[0].keys():
+        
         batch_inputs[key] = torch.cat([inp[key] for inp in batch_inputs_list], dim=0)
 
     input_len = batch_inputs_list[0]["input_ids"].shape[-1]

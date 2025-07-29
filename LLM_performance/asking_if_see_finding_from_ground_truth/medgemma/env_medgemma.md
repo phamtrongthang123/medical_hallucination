@@ -9,4 +9,5 @@ uv pip install accelerate
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python medgemma_example.py
+CUDA_VISIBLE_DEVICES=0 python infer_all_mimic_eye.py
 ```
