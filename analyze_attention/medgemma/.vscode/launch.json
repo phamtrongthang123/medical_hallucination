@@ -10,7 +10,8 @@
             "type": "debugpy",
             "request": "launch",
             "program": "inference.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }
