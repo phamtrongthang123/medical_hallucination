@@ -385,34 +385,6 @@ def get_dict_size(d):
     return count
 
 
-@timer_decorator
-def load_nii_files(file_list):
-    """Example usage of timer decorator
-
-    # The decorator automatically times the function
-    files = ['file1.nii.gz', 'file2.nii.gz']
-    load_nii_files(files)
-    # Output: load_nii_files took 2.3456 seconds
-    """
-    pass
-
-
-@retry(max_attempts=3, delay=1)
-def download_file(url):
-    """Example usage of retry decorator
-
-    # Function will retry up to 3 times with 1 second delay
-    download_file('http://example.com/data.zip')
-    # If it fails twice but succeeds on 3rd try, it works
-    # If it fails all 3 times, raises the last exception
-    """
-    import requests
-
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.content
-
-
 def ensure_list(item):
     """Ensure item is a list
 
