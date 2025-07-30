@@ -32,8 +32,9 @@ def main():
     processor = AutoProcessor.from_pretrained(model_id)
 
     root_dir = args.root_dir
-    with open("./dicom_question_pairs.json") as f:
-        image_question_pairs = json.load(f)
+    with open('./jpg_files_list.json') as f:
+        a = json.load(f)
+        image_list = a['file_paths']
 
     results = []
 
@@ -43,7 +44,7 @@ def main():
         """Process a batch of images"""
         batch_inputs_list = []
 
-        image_path, question = batch_paths
+        image_path = batch_paths
         image = Image.open(os.path.join(root_dir, image_path))
 
         messages = [
@@ -56,13 +57,13 @@ def main():
                 "content": [
                     {
                         "type": "text",
-                        "text": question,
+                        "text": 'Describe the findings of the chest x-ray in a paragraph with short sentences.',
                     },
                     {"type": "image", "image": image},
                 ],
             },
         ]
-
+        question = 'Describe the findings of the chest x-ray in a paragraph with short sentences.'
         inputs = processor.apply_chat_template(
             messages,
             add_generation_prompt=True,
@@ -107,9 +108,9 @@ def main():
 
     # Process images in batches
     for i in tqdm(
-        range(0, len(image_question_pairs)), desc="Processing batches"
+        range(0, len(image_list)), desc="Processing batches"
     ):
-        batch_paths = image_question_pairs[i]
+        batch_paths = image_list[i]
         batch_results = process_batch(batch_paths)
         results.extend(batch_results)
 
