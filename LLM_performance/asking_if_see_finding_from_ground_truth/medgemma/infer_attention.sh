@@ -35,4 +35,4 @@ export TRANSFORMERS_CACHE="$HOME/.cache/huggingface/transformers"
 mkdir -p $HOME/.cache/huggingface/hub
 mkdir -p $HOME/.cache/huggingface/transformers
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 python infer_all_mimic_eye_save_attention.py --root_dir "$HOME/mimic-eye/mimic-eye"
+CUDA_VISIBLE_DEVICES=4,5,6 python infer_all_mimic_eye_save_attention.py --root_dir "$HOME/mimic-eye/mimic-eye"
